@@ -1,0 +1,26 @@
+[
+  {
+    "ParameterKey": "EnvironmentName",
+    "ParameterValue": "CapstoneProject"
+  },
+  {
+    "ParameterKey": "KeyPairName",
+    "ParameterValue": "DevOps_Project_SG"
+  },
+  {
+    "ParameterKey": "DesiredInstances",
+    "ParameterValue": "3"
+  },
+  {
+    "ParameterKey": "ImageID",
+    "ParameterValue": "ami-0ac80df6eff0e70b5"
+  },
+  {
+    "ParameterKey": "MinSize",
+    "ParameterValue": "1"
+  },
+  {
+    "ParameterKey": "MaxSize",
+    "ParameterValue": "4"
+  }
+]
