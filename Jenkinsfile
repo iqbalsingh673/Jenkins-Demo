@@ -38,7 +38,7 @@ pipeline {
               steps{
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'eksuser', region: 'us-east-1') {
-                      sh "kubectl set image deployments/vibcapstoneapp-deployment vibcapstoneapp=vibhore68/vibcapstoneappv2
+                      sh "kubectl set image deployments/vibcapstoneapp-deployment vibcapstoneapp=vibhore68/vibcapstoneappv2:latest"
 		      sh "sleep 8m"
                       sh "kubectl rollout status deployment.v1.apps/vibcapstoneapp-deployment"
 		      sh "kubectl get deployment"
