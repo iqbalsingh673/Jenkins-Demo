@@ -25,7 +25,7 @@ pipeline {
                   withAWS(credentials: 'eksuser', region: 'us-east-1') {
                       sh "aws eks --region us-east-1 update-kubeconfig --name CapstoneEKS-g41IEceOgaS7"
                       sh "kubectl apply -f deployment.yml"
-		      sh "sleep 8m"
+		      sh "sleep 2m"
                       sh "kubectl rollout status deployment.v1.apps/vibcapstoneapp-deployment"
 		      sh "kubectl get deployment"
 		      sh "kubectl get rs"
@@ -39,7 +39,7 @@ pipeline {
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'eksuser', region: 'us-east-1') {
                       sh "kubectl set image deployments/vibcapstoneapp-deployment vibcapstoneapp=vibhore68/vibcapstoneappv2:latest"
-		      sh "sleep 8m"
+		      sh "sleep 2m"
                       sh "kubectl rollout status deployment.v1.apps/vibcapstoneapp-deployment"
 		      sh "kubectl get deployment"
                       sh "kubectl get rs"
