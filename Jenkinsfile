@@ -23,7 +23,7 @@ pipeline {
               steps{
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'aws-static', region: 'us-east-2') {
-                      sh "aws eks --region us-east-2 update-kubeconfig --name UdacityCapstone"
+                      sh "aws eks --region us-east-2 update-kubeconfig --name CapstoneEKS-samlef6rIDPL"
                       sh "kubectl apply -f deployment.yml"
 		      sh "sleep 2m"
                       sh "kubectl rollout status deployment.v1.apps/udacity_capstone-deployment"

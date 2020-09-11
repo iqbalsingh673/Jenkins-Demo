@@ -1,7 +1,7 @@
 [
   {
     "ParameterKey": "EnvironmentName",
-    "ParameterValue": "Udacity_Capstone_Project"
+    "ParameterValue": "Udacity-Capstone-Project"
   },
   {
     "ParameterKey": "KeyPairName",
@@ -13,7 +13,7 @@
   },
   {
     "ParameterKey": "ImageID",
-    "ParameterValue": "ami-0ac80df6eff0e70b5"
+    "ParameterValue": "ami-0010d386b82bc06f0"
   },
   {
     "ParameterKey": "MinSize",
