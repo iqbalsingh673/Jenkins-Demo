@@ -1,11 +1,11 @@
 [
   {
     "ParameterKey": "EnvironmentName",
-    "ParameterValue": "CapstoneProject"
+    "ParameterValue": "Udacity_Capstone_Project"
   },
   {
     "ParameterKey": "KeyPairName",
-    "ParameterValue": "DevOps_Project_SG"
+    "ParameterValue": "udacity_capstone"
   },
   {
     "ParameterKey": "DesiredInstances",

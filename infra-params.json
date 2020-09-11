@@ -1,7 +1,7 @@
 [
   {
     "ParameterKey": "EnvironmentName",
-    "ParameterValue": "DevopsCapstoneProject"
+    "ParameterValue": "Udacity_Capstone_Project"
   },
   {
     "ParameterKey": "VpcCIDR",

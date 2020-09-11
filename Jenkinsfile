@@ -8,25 +8,25 @@ pipeline {
          }
          stage('Build Docker Image') {
               steps {
-                  sh 'docker build -t vibcapstoneapp .'
+                  sh 'docker build -t udacity_capstone .'
               }
          }
          stage('Push Docker Image') {
               steps {
-                  withDockerRegistry([url: "", credentialsId: "dockerhubuser"]) {
-                      sh "docker tag vibcapstoneapp vibhore68/vibcapstoneapp"
-                      sh 'docker push vibhore68/vibcapstoneapp'
+                  withDockerRegistry([url: "", credentialsId: "DockerHub"]) {
+                      sh "docker tag udacity_capstone iqbalsingh673/udacity_capstone"
+                      sh 'docker push iqbalsingh673/udacity_capstone'
                   }
               }
          }
          stage('Deploying docker container') {
               steps{
                   echo 'Deploying to AWS...'
-                  withAWS(credentials: 'eksuser', region: 'us-east-1') {
-                      sh "aws eks --region us-east-1 update-kubeconfig --name CapstoneEKS-g41IEceOgaS7"
+                  withAWS(credentials: 'aws-static', region: 'us-east-2') {
+                      sh "aws eks --region us-east-2 update-kubeconfig --name UdacityCapstone"
                       sh "kubectl apply -f deployment.yml"
 		      sh "sleep 2m"
-                      sh "kubectl rollout status deployment.v1.apps/vibcapstoneapp-deployment"
+                      sh "kubectl rollout status deployment.v1.apps/udacity_capstone-deployment"
 		      sh "kubectl get deployment"
 		      sh "kubectl get rs"
                       sh "kubectl get pods"
@@ -38,9 +38,9 @@ pipeline {
               steps{
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'eksuser', region: 'us-east-1') {
-                      sh "kubectl set image deployments/vibcapstoneapp-deployment vibcapstoneapp=vibhore68/vibcapstoneappv2:latest"
+                      sh "kubectl set image deployments/udacity_capstone-deployment udacity_capstone=iqbalsingh673/udacity_capstone:latest"
 		      sh "sleep 2m"
-                      sh "kubectl rollout status deployment.v1.apps/vibcapstoneapp-deployment"
+                      sh "kubectl rollout status deployment.v1.apps/udacity_capstone-deployment"
 		      sh "kubectl get deployment"
                       sh "kubectl get rs"
                       sh "kubectl get pods"

@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vibcapstoneapp-deployment
+  name: udacity_capstone-deployment
   labels:
-    app: vibcapstoneapp
+    app: udacity_capstone
   namespace: default
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: vibcapstoneapp
+      app: udacity_capstone
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: vibcapstoneapp
+        app: udacity_capstone
     spec:
       containers:
-        - image: vibhore68/vibcapstoneapp
+        - image: iqbalsingh673/udacity_capstone
           imagePullPolicy: Always
-          name: vibcapstoneapp
+          name: udacity_capstone
           ports:
             - containerPort: 80
 
@@ -31,13 +31,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: vibcapstoneapp-lb-service
+  name: udacity_capstone-lb-service
   labels:
-    app: vibcapstoneapp
+    app: udacity_capstone
 spec:
   type: LoadBalancer
   selector:
-    app: vibcapstoneapp
+    app: udacity_capstone
   ports:
     - port: 80
       targetPort: 80
