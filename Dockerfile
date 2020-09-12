@@ -1,3 +1,4 @@
+#
 FROM nginx:latest
 
 # Copy source code to working directory
